@@ -2,7 +2,7 @@
   <div>
     <form @submit="addTt">
       <input type="text" v-model="name" name="name" placeholder="New spider" >
-      <input type="text"  v-model="latinName" name="latinName" placeholder="latinName" >
+      <input type="text"  v-model="latinName" name="latinName" placeholder="Latin name" >
       <input type="text"  v-model="habitat" name="habitat" placeholder="Habitats" >
        <input type="submit" value="Submit" class="btn">
     </form>
@@ -30,6 +30,7 @@ export default {
         habitat: this.habitat
       }
       this.$store.dispatch('ADD_TT', newTt)
+
 
       // //Send up to parent
       // this.$emit('add-tt', newTt);
