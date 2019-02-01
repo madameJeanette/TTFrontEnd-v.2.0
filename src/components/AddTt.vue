@@ -3,7 +3,7 @@
     <form @submit="addTt">
       <input type="text" v-model="name" name="name" placeholder="New spider" >
       <input type="text"  v-model="latinName" name="latinName" placeholder="Latin name" >
-      <input type="text"  v-model="habitat" name="habitat" placeholder="Habitats" >
+      <input type="text"  v-model="habitat" name="habitat" placeholder="Habitat" >
        <input type="submit" value="Submit" class="btn">
     </form>
   </div>
@@ -29,15 +29,8 @@ export default {
         latinName: this.latinName,
         habitat: this.habitat
       }
-      this.$store.dispatch('ADD_TT', newTt)
+      this.$store.dispatch('ADD_TT', newTt) //add new Tarantula to local store
 
-
-      // //Send up to parent
-      // this.$emit('add-tt', newTt);
-
-      // this.name = '';
-      // this.latinName= '';
-      // this.habitat= '';
 
     }
   }

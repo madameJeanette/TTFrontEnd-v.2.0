@@ -13,27 +13,19 @@
               <h4>Habitat:</h4>
               <h2>{{tt.habitat}}</h2>
               <br>
-              <form v-on:submit.prevent="editTt(tt)">
+              <v-form v-on:submit.prevent="editTt(tt)">
                 <input type="text" v-model="name" name="name" placeholder="New spider">
                 <input type="text" v-model="latinName" name="latinName" placeholder="Latin name">
                 <input type="text" v-model="habitat" name="habitat" placeholder="Habitat">
                 
-                <button @click="deleteTt(tt)" class="del">X</button>
+                <button @click="deleteTt(tt)" class="del">X</button>   
                 <input type="submit" value="Edit" class="btn">
-              </form>
+              </v-form>
             </v-card-text>
           </v-card>
         </v-expansion-panel-content>
 
-      </v-expansion-panel>
-        
-    <div class="text-xs-center">
-      <v-pagination
-        v-model="page"
-        :length="3"
-      ></v-pagination>
-    </div>
-  
+      </v-expansion-panel> 
     </v-app>
   </div>
   
@@ -41,9 +33,8 @@
 </template>
 
 <script>
-// import TtItem from "./TtItem.vue";
 import { mapState } from "vuex";
-// import EditTt from "./EditTt"
+
 
 export default {
   name: "Tts",
@@ -58,10 +49,10 @@ export default {
     };
   },
   methods: {
-    deleteTt(tt) {
+    deleteTt(tt) {                            //Delete tarantula data in store
       this.$store.dispatch("DELETE_TT", tt);
     },
-    editTt(tt) {
+    editTt(tt) {                           //Edit tarantula data in store
       const newTarantula = {
         _id: tt._id,
         name: this.name,
@@ -69,7 +60,7 @@ export default {
         habitat: this.habitat
       };
       console.log(newTarantula);
-      this.$store.dispatch("UPDATE_TT", newTarantula);
+      this.$store.dispatch("UPDATE_TT", newTarantula);        //Update tarantula data in store
     }
   }
 };

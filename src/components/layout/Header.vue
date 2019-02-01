@@ -1,6 +1,6 @@
 <template>
 <header class="header">
-<h1>Tarantula Pokedex</h1>
+<h1>Tarantula Pokedex API</h1>
 </header>
 </template>
 
